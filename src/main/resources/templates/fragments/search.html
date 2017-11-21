@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base::headstuff"lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add actors to Movie</title>
+</head>
+<body>
+<div class="container">
+    <div class="text-center">
+        <form th:action="@{/search}" method ="post">
+            <input type="text" class="input-lg form-control" placeholder="Enter search term here"></div>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+</body>
+</html>

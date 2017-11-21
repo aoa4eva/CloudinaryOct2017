@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base::headstuff"lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add actors to Movie</title>
+</head>
+
+ <body>
+     <nav th:replace="fragments/base::thenavbar"></nav>
+
+     <div class="container">
+    <div class="col-md-12">
+        <h1 class="text-center">Welcome to the movie database</h1>
+        <span><span class="h1">Movies</span><span class="h6"><a th:href="@{/addmovie}"> Add movie</a></span></span></span>
+
+        <div class="col-md6 col-offset-2" th:each="aMovie:${movieList}" >
+
+
+            <h3 th:text="${aMovie.title}">Movie title</h3><a th:if="${gotactors} gt 0 and ${gotactors} gt ${#lists.size(aMovie.cast)}" th:href="@{/addactorstomovie/{id}(id=${aMovie.id})}">Add actors</a>
+            <div class="row">
+                <span th:each="anotherActor:${aMovie.cast}">
+                   <div class="col-md-1"><img src th:src="${anotherActor.headshot}"/> <p class="text-center" th:text="${anotherActor.name}"></div>
+
+                </span>
+            </div>
+        </div>
+        <h2>Actors</h2>
+        <div th:each="anActor:${actorList}" >
+            <div class="row">
+                <div class="col-md-2">
+                    <img th:src="${anActor.headshot}"/>
+                </div>
+                <div class="col-md-6">
+                    <p th:text="${anActor.name}"></p>
+                    <p th:inline="text">[[${anActor.name}]]'s real name is [[${anActor.realname}]] </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+ </div>
+     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+ </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base::headstuff"lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add actors to Movie</title>
+</head>
+<body>
+<nav th:replace="fragments/base::thenavbar"></nav>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-2">
+            <form th:action="@{/addactor}" th:object="${actor}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{id}" placeholder="Enter actor's stage name">
+
+                <div class="form-group">
+                    <label>Actor's name</label>
+                    <input class="form-control" type="text" th:field="*{name}" placeholder="Enter actor's stage name">
+                </div>
+                <div class="form-group">
+                    <label>Actor's real name</label>
+                    <input class="form-control" type="text" th:field="*{realname}" placeholder = "Enter actor's real name">
+                </div>
+                <input type="file" name="file"/>
+                <br/>
+             <input call="btn btn-default" type="submit" value="Add Actor">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

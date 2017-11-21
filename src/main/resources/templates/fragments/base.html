@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headstuff" lang="en">
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:fragment = "thenavbar" class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">The Movie Database</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a th:href="@{/addmovie}">Add a Movie</a></li>
+            <li><a th:href="@{/addactor}">Add an actor</a></li>
+            <li><a th:href="@{/about}">About this project</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

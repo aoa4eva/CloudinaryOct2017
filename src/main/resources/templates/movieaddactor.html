@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base::headstuff"lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add actors to Movie</title>
+</head>
+<body>
+
+<nav th:replace="fragments/base::thenavbar"></nav>
+
+<form th:action="@{/addmoviestoactor/{movid}(movid=${mov.id})}" th:object="${anActor}" method="post">
+    <input type="text" th:value="${mov.id}">
+    <label th:inline="text">Adding actors for [[${mov.title}]]</label>
+
+    <select name="actors">
+        <option th:each="anActor:${actorList}" th:value="${anActor.id}" th:text="${anActor.name}"></option>
+    </select>
+
+    <input type="submit" value="Add actor!">
+</form>
+
+
+</body>
+</html>
